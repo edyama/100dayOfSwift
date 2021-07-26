@@ -40,12 +40,45 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 	}
 
 	@objc func addNewPerson() {
-		let picker = UIImagePickerController()
-		picker.allowsEditing = true
-		picker.delegate = self
-		present(picker, animated: true)
+        let ac = UIAlertController(title: "Choose option", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        ac.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
 	}
 
+    func openCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let picker = UIImagePickerController()
+            picker.sourceType = .camera
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Error", message: "Camera is not avalaible", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
+    }
+    
+    func openGallery() {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let picker = UIImagePickerController()
+            picker.sourceType = .photoLibrary
+            picker.allowsEditing = true
+            picker.delegate = self
+            self.present(picker, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Error", message: "Galery is not avalaible", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		guard let image = info[.originalImage] as? UIImage else { return }
 
