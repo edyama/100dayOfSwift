@@ -148,7 +148,10 @@ class ViewController: UIViewController {
         
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activateButtons.append(sender)
-        sender.isHidden = true
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: []) {
+            sender.alpha = 0.0
+        }
     }
     
     @objc func submitTapped(_ sender: UIButton) {
@@ -191,7 +194,9 @@ class ViewController: UIViewController {
         currentAnswer.text = ""
         
         for button in activateButtons {
-            button.isHidden = false
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: []) {
+                button.alpha = 1.0
+            }
         }
         
         activateButtons.removeAll()

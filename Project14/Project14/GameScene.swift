@@ -90,7 +90,15 @@ class GameScene: SKScene {
             gameOver.zPosition = 1
             addChild(gameOver)
             
-            run(SKAction.playSoundFileNamed("gameOver.m4a", waitForCompletion: false))
+            let finalScore = SKLabelNode(fontNamed: "Chalkduster")
+            finalScore.text = "Final Score: \(score)"
+            finalScore.position = CGPoint(x: 512, y: 284)
+            finalScore.horizontalAlignmentMode = .center
+            finalScore.fontSize = 48
+            finalScore.zPosition = 1
+            addChild(finalScore)
+            
+            run(SKAction.playSoundFileNamed("gameOver.caf", waitForCompletion: false))
             
             return
         }
