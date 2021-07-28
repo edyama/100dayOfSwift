@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4433F8326B18E440089FFCA /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4433F8226B18E440089FFCA /* Person.swift */; };
 		C47CDC7726AAFCC300BDE5BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47CDC7626AAFCC300BDE5BB /* AppDelegate.swift */; };
 		C47CDC7926AAFCC300BDE5BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47CDC7826AAFCC300BDE5BB /* SceneDelegate.swift */; };
 		C47CDC7B26AAFCC300BDE5BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47CDC7A26AAFCC300BDE5BB /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4433F8226B18E440089FFCA /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		C47CDC7326AAFCC300BDE5BB /* Challenge4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C47CDC7626AAFCC300BDE5BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C47CDC7826AAFCC300BDE5BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4433F7F26B18DED0089FFCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4433F8226B18E440089FFCA /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C47CDC6A26AAFCC300BDE5BB = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		C47CDC7526AAFCC300BDE5BB /* Challenge4 */ = {
 			isa = PBXGroup;
 			children = (
+				C4433F7F26B18DED0089FFCA /* Model */,
 				C47CDC7626AAFCC300BDE5BB /* AppDelegate.swift */,
 				C47CDC7826AAFCC300BDE5BB /* SceneDelegate.swift */,
 				C47CDC7A26AAFCC300BDE5BB /* ViewController.swift */,
@@ -139,6 +150,7 @@
 			files = (
 				C47CDC7B26AAFCC300BDE5BB /* ViewController.swift in Sources */,
 				C47CDC7726AAFCC300BDE5BB /* AppDelegate.swift in Sources */,
+				C4433F8326B18E440089FFCA /* Person.swift in Sources */,
 				C47CDC7926AAFCC300BDE5BB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
