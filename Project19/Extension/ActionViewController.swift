@@ -13,6 +13,7 @@ class ActionViewController: UIViewController {
     
     var pageTitle = ""
     var pageURL = ""
+    var savedSites = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ class ActionViewController: UIViewController {
                     DispatchQueue.main.async { [weak self] in
                         self?.title = self?.pageTitle
                     }
+                    
+                    self?.loadJavaScriptCodeFor(website: self?.pageTitle ?? "")
                 }
             }
         }
@@ -78,5 +81,21 @@ class ActionViewController: UIViewController {
         
         let selectRange = script.selectedRange
         script.scrollRangeToVisible(selectRange)
+    }
+    
+    func loadJavaScriptCodeFor(website: String) {
+        let defaults = UserDefaults.standard
+        if let savedData = defaults.object(forKey: website) as? Data {
+            let jsonDecoder = JSONDecoder()
+            if let websiteCode = try? jsonDecoder.decode(WebsiteJavaScriptCode.self, from: savedData) {
+                DispatchQueue.main.async { [weak self] in self?.script.text = websiteCode.code }
+                print("loaded code from \(websiteCode.title)")
+            } else {
+                print("no data loaded for \(website)")
+                DispatchQueue.main.async { [weak self] in self?.script.text = "// enter custom JavaScript code" }
+            }
+        } else {
+            print("no user data for \(website)")
+        }
     }
 }
