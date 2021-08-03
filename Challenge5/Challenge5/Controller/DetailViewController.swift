@@ -29,12 +29,18 @@ class DetailViewController: UIViewController {
             <meta name="viewport" content="width=device-width, inital-scale=1">
             <style>
             name { font-family: sans-serif; font-size: 125%; font-weight: bold; }
-            capitalCity { font-family: sans-serif; font-size: 125%; }
+            capital { font-family: sans-serif; font-size: 125%; }
+            population { font-family: sans-serif; font-size: 125%; }
+            area { font-family: sans-serif; font-size: 125%; }
+            gini { font-family: sans-serif; font-size: 125%; }
             </style>
             </head>
             <body>
             <h3>\(detailItem.name)</h3>
-            <p>\(detailItem.capitalCity)</p>
+            <p>Capital: \(detailItem.capital)</p>
+            <p>Population: \(detailItem.population)</p>
+            <p>Area: \(detailItem.area)km2</p>
+            <p>Gini: \(detailItem.gini)</p>
             </body>
             </html>
             """

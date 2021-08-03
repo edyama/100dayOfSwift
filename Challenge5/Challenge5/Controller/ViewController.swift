@@ -27,7 +27,7 @@ class ViewController: UITableViewController {
     
     @objc func fetchJSON() {
         
-        let urlString = "https://api.worldbank.org/v2/countries?format=json"
+        let urlString = "https://restcountries.eu/rest/v2"
         
         if let url = URL(string: urlString) {
             guard let data = try? Data(contentsOf: url) else { return }
@@ -92,10 +92,10 @@ class ViewController: UITableViewController {
         
         if filteredCountries.isEmpty {
             cell.textLabel?.text = country.name
-            cell.detailTextLabel?.text = country.capitalCity
+            cell.detailTextLabel?.text = country.capital
         } else {
             cell.textLabel?.text = filteredCountry.name
-            cell.detailTextLabel?.text = filteredCountry.capitalCity
+            cell.detailTextLabel?.text = filteredCountry.capital
         }
     
         return cell

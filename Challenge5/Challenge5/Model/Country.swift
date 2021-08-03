@@ -10,5 +10,8 @@ import Foundation
 struct Country: Codable {
         
     var name: String
-    var capitalCity: String
+    var capital: String
+    var population: Int
+    var area: Int
+    var gini: Double
 }
