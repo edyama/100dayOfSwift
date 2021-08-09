@@ -6,6 +6,7 @@
 //  Copyright © 2016 Paul Hudson. All rights reserved.
 //
 
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -14,7 +15,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(authenticateRequired))
 	}
 
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,6 +40,31 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
 		return cell
 	}
 
+    @objc func authenticateRequired() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, authetificationError in
+                DispatchQueue.main.async {
+                    if success {
+                        self?.addNewPerson()
+                    } else {
+                        let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified; please try again.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                }
+            }
+        } else {
+            let ac = UIAlertController(title: "Biometry unavaiable", message: "Your device is not configured for biometric configuration.", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+    }
+    
 	@objc func addNewPerson() {
         let ac = UIAlertController(title: "Choose option", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
