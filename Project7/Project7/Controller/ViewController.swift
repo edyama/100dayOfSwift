@@ -33,7 +33,6 @@ class ViewController: UITableViewController {
             urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
         }
         
-        
         if let url = URL(string: urlString) {
             guard let data = try? Data(contentsOf: url) else { return }
             parse(json: data)

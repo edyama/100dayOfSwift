@@ -14,7 +14,6 @@
 		C4433F6C26B187770089FFCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4433F6B26B187770089FFCA /* Assets.xcassets */; };
 		C4433F6F26B187770089FFCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4433F6D26B187770089FFCA /* LaunchScreen.storyboard */; };
 		C4433F7A26B188150089FFCA /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4433F7926B188150089FFCA /* Country.swift */; };
-		C4433F7C26B188250089FFCA /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4433F7B26B188250089FFCA /* Countries.swift */; };
 		C4433F7E26B188360089FFCA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4433F7D26B188360089FFCA /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		C4433F6E26B187770089FFCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4433F7026B187770089FFCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4433F7926B188150089FFCA /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		C4433F7B26B188250089FFCA /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		C4433F7D26B188360089FFCA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				C4433F7926B188150089FFCA /* Country.swift */,
-				C4433F7B26B188250089FFCA /* Countries.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +171,6 @@
 				C4433F6726B187740089FFCA /* ViewController.swift in Sources */,
 				C4433F6326B187740089FFCA /* AppDelegate.swift in Sources */,
 				C4433F7E26B188360089FFCA /* DetailViewController.swift in Sources */,
-				C4433F7C26B188250089FFCA /* Countries.swift in Sources */,
 				C4433F6526B187740089FFCA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

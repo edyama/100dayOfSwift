@@ -29,10 +29,7 @@ class DetailViewController: UIViewController {
             <meta name="viewport" content="width=device-width, inital-scale=1">
             <style>
             name { font-family: sans-serif; font-size: 125%; font-weight: bold; }
-            capital { font-family: sans-serif; font-size: 125%; }
-            population { font-family: sans-serif; font-size: 125%; }
-            area { font-family: sans-serif; font-size: 125%; }
-            gini { font-family: sans-serif; font-size: 125%; }
+            capital, population, area, gini { font-family: sans-serif; font-size: 125%; }
             </style>
             </head>
             <body>
