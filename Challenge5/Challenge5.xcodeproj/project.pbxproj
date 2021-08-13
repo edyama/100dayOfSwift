@@ -60,11 +60,11 @@
 		C4433F6126B187740089FFCA /* Challenge5 */ = {
 			isa = PBXGroup;
 			children = (
+				C4433F6226B187740089FFCA /* AppDelegate.swift */,
+				C4433F6426B187740089FFCA /* SceneDelegate.swift */,
 				C4433F7626B187E40089FFCA /* Model */,
 				C4433F7726B187EB0089FFCA /* View */,
 				C4433F7826B187F10089FFCA /* Controller */,
-				C4433F6226B187740089FFCA /* AppDelegate.swift */,
-				C4433F6426B187740089FFCA /* SceneDelegate.swift */,
 				C4433F6B26B187770089FFCA /* Assets.xcassets */,
 				C4433F6D26B187770089FFCA /* LaunchScreen.storyboard */,
 				C4433F7026B187770089FFCA /* Info.plist */,

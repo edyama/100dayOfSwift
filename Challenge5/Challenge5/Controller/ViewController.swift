@@ -18,44 +18,48 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performSelector(inBackground: #selector(fetchJSON), with: nil)
+        title = "Countries facts"
+        
+        fetchJSON()
     }
     
-    @objc func fetchJSON() {
-        let urlString = "https://restcountries.eu/rest/v2/all?fields=name;capital;population;area;gini"
+    func fetchJSON() {
+        let urlString = "https://restcountries.eu/rest/v2/all"
         
-        if let url = URL(string: urlString) {
-            guard let data = try? Data(contentsOf: url) else { return }
-            guard let jsonCountries = try? JSONDecoder().decode([Country].self, from: data) else { return }
+        guard let url = URL(string: urlString) else { return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decode = JSONDecoder()
+            let jsonCountries = try decode.decode([Country].self, from: data)
             countries = jsonCountries
-        } else {
-            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(ac, animated: true)
+        } catch {
+            print(error)
         }
         
-        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Country", for: indexPath)
         let country = countries[indexPath.row]
         
         cell.textLabel?.text = country.name
-        cell.detailTextLabel?.text = country.capital
-    
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailViewController()
-        vc.detailItem = countries[indexPath.row]
-        navigationController?.pushViewController(vc, animated: true)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController {
+            vc.detailItem = countries[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
-
-
